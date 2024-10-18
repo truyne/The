@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quà Tặng Dành Cho Chị Thế Nè</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe4e1;
+            color: #1e90ff; /* Màu chữ xanh dương nhạt */
+            text-align: center;
+            margin: 0;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #1e90ff; /* Màu chữ tiêu đề xanh dương nhạt */
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px;
+            opacity: 0; /* Ẩn văn bản ban đầu */
+            transition: opacity 1s ease;
+            color: #1e90ff; /* Màu chữ đoạn văn xanh dương nhạt */
+        }
+
+        button {
+            background-color: #e91e63;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #d5006d;
+        }
+
+        #typed-text {
+            margin-top: 30px;
+            font-size: 1.8em;
+            color: #1e90ff; /* Màu chữ nội dung nhập từng chữ xanh dương nhạt */
+        }
+    </style>
+</head>
+<body>
+    <h1>Quà Tặng Dành Cho Chị</h1>
+    
+    <div>
+        <p>Nhấn vào nút bên dưới để xem lời chúc từ thằng em nhé!</p>
+        <button onclick="startTyping()">Nhận quà</button>
+        <div id="typed-text"></div>
+    </div>
+
+    <script>
+        const message = "Chúc chị một ngày 20/10 vui vẻ, ngày càng xinh đẹp hơn và hạnh phúc hơn. Thành công trong mọi việc. Chúc chị tất cả .Thằng em mới học sơ sơ nên code với decor được mỗi như này thôi mong chị nhận tấm lòng của thằng em nheeeeeeeeeeeee";
+
+        function startTyping() {
+            const typedTextDiv = document.getElementById("typed-text");
+            typedTextDiv.innerHTML = ""; // Xóa nội dung cũ
+            let i = 0;
+
+            function typeWriter() {
+                if (i < message.length) {
+                    typedTextDiv.innerHTML += message.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100); // Tốc độ chạy từng chữ
+                } else {
+                    // Hiện đoạn văn sau khi hoàn thành
+                    typedTextDiv.style.opacity = 1; 
+                }
+            }
+            typeWriter(); // Gọi hàm để bắt đầu chạy chữ
+        }
+    </script>
+</body>
+</html>
